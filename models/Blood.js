@@ -11,11 +11,15 @@ const BloodSchema = new Schema({
     type: String,
     required: true
   },
-  location: {
+  temperature: {
     type: String,
     required:true
   },
-  
+  humidity:{
+    type: String,
+    required:true
+  },
+
   date: {
     type: Date,
     default: Date.now

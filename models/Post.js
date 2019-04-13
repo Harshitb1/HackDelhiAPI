@@ -22,4 +22,4 @@ const BloodSchema = new Schema({
   }
 });
 
-module.exports = Post = mongoose.model('blood', BloodSchema);
+module.exports = Post = mongoose.model('bloods', BloodSchema);
