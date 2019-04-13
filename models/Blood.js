@@ -19,7 +19,10 @@ const BloodSchema = new Schema({
     type: String,
     required:true
   },
-
+  isfaulty:{
+    type:String,
+    required:true
+  },
   date: {
     type: Date,
     default: Date.now

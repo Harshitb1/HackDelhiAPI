@@ -7,22 +7,25 @@ const ProfileSchema = new Schema({
     type: Schema.Types.ObjectId,
     ref: 'users'
   },
-  blood: {
-    type: Schema.Types.ObjectId,
-    ref: 'blood'
-  },
-  bloodbank: {
+
+  productId: {
     type: String,
     required: true,
     max: 40
   },
-  institute: {
+  producttype: {
     type: String
   },
-  laboratory: {
+  size: {
     type: String
   },
-  location: {
+  description: {
+    type: String
+  }, 
+  owner: {
+    type: String
+  }, 
+  Issuer: {
     type: String
   }, 
   date: {

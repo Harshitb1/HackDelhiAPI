@@ -13,6 +13,7 @@ const validateLoginInput = require('../../validation/login');
 // Load User model
 const Blood = require('../../models/Blood');
 
+
 // @route   GET api/users/test
 // @desc    Tests users route
 // @access  Public
@@ -29,6 +30,8 @@ router.get('/', (req, res) =>{
     )
     
     });
+
+   
 // @route   POST api/users/register
 // @desc    Register user
 // @access  Public
@@ -55,7 +58,8 @@ router.post('/register', (req, res) => {
          bloodgroup: req.body.bloodgroup,
          humidity: req.body.humidity,
          temperature: req.body.temperature,
-         user: req.body.user
+         user: req.body.user,
+         isfaulty: req.body.isfaulty
       }).save()
         .then(blood => res.json(blood))
         .catch(err => console.log(err));
@@ -72,6 +76,9 @@ router.post('/register', (req, res) => {
     // }
 //   });
 });
+
+
+
 
 
 router.get("/:blood_id",function(req,res){
