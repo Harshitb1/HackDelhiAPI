@@ -44,7 +44,8 @@ router.post('/register', (req, res) => {
 
       const newBlood = new Blood({
          bloodgroup: req.body.bloodgroup,
-         location: req.body.location,
+         humidity: req.body.humidity,
+         temperature: req.body.temperature,
          user: req.body.user
       }).save()
         .then(blood => res.json(blood))
