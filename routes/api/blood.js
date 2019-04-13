@@ -20,6 +20,15 @@ const Blood = require('../../models/Blood');
 
 router.get('/test', (req, res) => res.json({ msg: 'blood Works' }));
 
+
+router.get('/', (req, res) =>{
+    Blood.find({}).then(
+        blood=>{
+          res.status(200).json(blood);
+        }
+    )
+    
+    });
 // @route   POST api/users/register
 // @desc    Register user
 // @access  Public
