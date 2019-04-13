@@ -116,7 +116,7 @@ router.post(
     // Get fields
    
     const newPost = new Profile({
-      user: req.body.user,
+      bloodId: req.body.bloodId,
       productId: req.body.productId,
       producttype: req.body.producttype,
       size: req.body.size,
