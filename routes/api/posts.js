@@ -19,9 +19,11 @@ router.get('/test', (req, res) => res.json({ msg: 'Posts Works' }));
 // @route   GET api/posts
 // @desc    Get posts
 // @access  Public
+
 router.get('/', (req, res) => {
   Post.find()
     .sort({ date: -1 })
+    
     .then(posts => res.json(posts))
     .catch(err => res.status(404).json({ nopostsfound: 'No posts found' }));
 });
@@ -106,7 +108,6 @@ router.post(
               .status(400)
               .json({ alreadyliked: 'User already liked this post' });
           }
-
           // Add user id to likes array
           post.likes.unshift({ user: req.user.id });
 
@@ -116,7 +117,6 @@ router.post(
     });
   }
 );
-
 // @route   POST api/posts/unlike/:id
 // @desc    Unlike post
 // @access  Private

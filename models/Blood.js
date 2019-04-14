@@ -9,23 +9,19 @@ const BloodSchema = new Schema({
   },
   bloodgroup: {
     type: String,
-    required: true
   },
   temperature: {
     type: String,
-    required:true
   },
   humidity:{
     type: String,
-    required:true
   },
   isfaulty:{
     type:String,
-    required:true
   },
   date: {
-    type: Date,
-    default: Date.now
+    type: String,
+    default:(new Date).getTime()
   }
 });
 

@@ -12,6 +12,8 @@ const validateLoginInput = require('../../validation/login');
 
 // Load User model
 const Blood = require('../../models/Blood');
+const Details = require('../../models/Details');
+
 
 
 // @route   GET api/users/test
@@ -31,6 +33,22 @@ router.get('/', (req, res) =>{
     
     });
 
+    router.get('/details', (req, res) =>{
+        Details.find({}).then(
+            blood=>{
+              res.status(200).json(blood);
+            }
+        )
+        });
+
+        router.post('/details', (req, res) =>{
+            const newBlood = new Details({
+                email:req.body.email
+             }).save()
+               .then(blood => res.json(blood))
+               .catch(err => console.log(err));
+        });
+    
    
 // @route   POST api/users/register
 // @desc    Register user
