@@ -4,22 +4,35 @@ const Schema = mongoose.Schema;
 // Create Schema
 const InstituteSchema = new Schema({
  
-  name: {
+  ABneg: {
     type: String,
-    required: true
   },
-  email: {
+  ABpos: {
     type: String,
-    required:true
   },
-  bloodList: [
-    {
-      blood: {
-        type: Schema.Types.ObjectId,
-        ref: 'blood'
-      }
-    }
-  ]
+  Aneg: {
+    type: String,
+  },
+  Apos: {
+    type: String,
+  },
+  Bneg: {
+    type: String,
+  },Bpos: {
+    type: String,
+  },Lat: {
+    type: String,
+  },Lon: {
+    type: String,
+  },Oneg: {
+    type: String,
+  },Opos: {
+    type: String,
+  },Phone: {
+    type: String,
+  },name: {
+    type: String,
+  }
   
 });
 

@@ -12,6 +12,8 @@ const validateEducationInput = require('../../validation/education');
 const Profile = require('../../models/Profile');
 // Load User Model
 const User = require('../../models/User');
+const Institute = require('../../models/Institute');
+
 
 // @route   GET api/profile/test
 // @desc    Tests profile route
@@ -35,6 +37,57 @@ router.get(
         res.json(profile);
       })
       .catch(err => res.status(404).json(err));
+  }
+);
+
+router.get(
+  '/institute',
+  (req, res) => {
+    const errors = {};
+
+    Institute.find({ })
+      .then(profile => {
+        if (!profile) {
+          errors.noprofile = 'There is no profile for this user';
+          return res.status(404).json(errors);
+        }
+        res.json(profile);
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
+router.post(
+  '/institute',
+  (req, res) => {
+    // const { errors, isValid } = validateProfileInput(req.body);
+
+    // Check Validation
+    // if (!isValid) {
+    //   // Return any errors with 400 status
+    //   return res.status(400).json(errors);
+    // }
+
+    // Get fields
+   
+    const newPost = new Institute({
+      Aneg: req.body.Aneg,
+      Apos: req.body.Apos,
+      ABneg: req.body.ABneg,
+      ABpos: req.body.ABpos,
+      Bneg: req.body.Bneg,
+      Bpos: req.body.Bpos,
+      Lat:req.body.Lat,
+      Lon:req.body.Lon,
+      Oneg:req.body.Oneg,
+      Opos:req.body.Opos,
+      Phone:req.body.Phone,
+      name:req.body.name,
+
+    });
+
+    newPost.save().then(post => res.json(post));
+  
   }
 );
 
